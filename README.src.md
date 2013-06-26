@@ -8,7 +8,7 @@ This guide walks you through using Gradle to build a simple Android project.
 What you'll need
 ----------------
 
-- About 15 minutes
+ - About 15 minutes
  - A favorite text editor or IDE
  - [Android SDK][sdk]
  - An Android device or Emulator
@@ -75,21 +75,21 @@ Now that you have a project that you can build with Gradle, you can install Grad
 
 1. Download the latest version of Gradle (1.6 as of this writing) from the [Gradle Downloads] page 
 
-	> Note: Only the binaries are required, so look for the link to `gradle-1.6-bin.zip`. Alternatively, you may choose `gradle-1.6-all.zip` to download the sources and documentation as well as the binaries.
+    > Note: Only the binaries are required, so look for the link to `gradle-1.6-bin.zip`. Alternatively, you may choose `gradle-1.6-all.zip` to download the sources and documentation as well as the binaries.
 
 2. Unzip the archive and place it in a location of your choosing. For example on Linux or Mac, you may want to place it in the root of your user directory. See the [Installing Gradle] page for additional details.
 
 3. Configure the `GRADLE_HOME` environment variable based on the location where you installed Gradle.
 
-	Mac/Linux:
+    Mac/Linux:
 
-	```sh
-	$ export GRADLE_HOME=/<installation location>/gradle-1.6
+    ```sh
+    $ export GRADLE_HOME=/<installation location>/gradle-1.6
     $ export PATH=${PATH}:$GRADLE_HOME/bin
     ```
-    	    
+
     Windows:
-    
+
     ```sh
     set GRADLE_HOME=C:\<installation location>\gradle-1.6
     set PATH=%PATH%;%GRADLE_HOME%\bin
@@ -97,13 +97,13 @@ Now that you have a project that you can build with Gradle, you can install Grad
 
 4. Test the Gradle installation with following command:
 
-	```sh
-	$ gradle
-	```
+    ```sh
+    $ gradle
+    ```
 
-	If the installation is correct, we will see a welcome message that looks something like the following:
+    If the installation is correct, we will see a welcome message that looks something like the following:
 
-	```sh
+    ```sh
     :help
     
     Welcome to Gradle 1.6.
@@ -117,7 +117,7 @@ Now that you have a project that you can build with Gradle, you can install Grad
     BUILD SUCCESSFUL
     
     Total time: 2.923 secs 
-	```
+    ```
 
 You now have Gradle installed.
 
