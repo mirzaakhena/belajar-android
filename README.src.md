@@ -17,13 +17,11 @@ What you'll need
 
 ## {!include#how-to-complete-this-guide}
 
-## {!include#android-dev-env}
-
 <a name="scratch"></a>
 Set up the project
 ------------------
 
-First, you will need to set up an Android project for Gradle to build. To keep the focus on Gradle, make the project as simple as possible for now.
+First, you will need to set up an Android project for Gradle to build. To keep the focus on Gradle, make the project as simple as possible for now. If this is your first time working with Android projects, refer to [Getting Started with Android](../gs-android/README.md) to help configure your development environment.
 
 {!include#create-directory-structure-org-hello}
 
