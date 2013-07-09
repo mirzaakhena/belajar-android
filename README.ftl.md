@@ -1,3 +1,4 @@
+<#assign project_id="gs-gradle-android"/>
 
 # Getting Started: Building Android Projects with Gradle
 
@@ -16,22 +17,7 @@ What you'll need
 
 [sdk]: http://developer.android.com/sdk/index.html
 
-How to complete this guide
---------------------------
-
-Like all Spring's [Getting Started guides](/getting-started), you can start from scratch and complete each step, or you can bypass basic setup steps that are already familiar to you. Either way, you end up with working code.
-
-To **start from scratch**, move on to [Set up the project](#scratch).
-
-To **skip the basics**, do the following:
-
- - [Download][zip] and unzip the source repository for this guide, or clone it using [git](/understanding/git):
-`git clone https://github.com/springframework-meta/gs-gradle-android.git`
- - cd into `gs-gradle-android/initial`
- - Jump ahead to [Install Gradle](#initial).
-
-**When you're finished**, you can check your results against the code in `gs-gradle-android/complete`.
-[zip]: https://github.com/springframework-meta/gs-gradle-android/archive/master.zip
+## <@how_to_complete_this_guide jump_ahead='Install Gradle'/>
 
 <a name="scratch"></a>
 Set up the project
@@ -39,78 +25,21 @@ Set up the project
 
 First, you need to set up an Android project for Gradle to build. To keep the focus on Gradle, make the project as simple as possible for now. If this is your first time working with Android projects, refer to [Getting Started with Android](../gs-android/README.md) to help configure your development environment.
 
-### Create the directory structure
+<@create_directory_structure_org_hello/>
 
-In a project directory of your choosing, create the following subdirectory structure; for example, with the following command on Mac or Linux:
+<@create_android_manifest/>
 
-```sh
-$ mkdir -p src/main/java/org/hello
-```
-
-    └── src
-        └── main
-            └── java
-                └── org
-                    └── hello
-
-### Create an Android manifest
-
-The [Android Manifest] contains all the information required to run an Android application, and it cannot build without one.
-
-[Android Manifest]: http://developer.android.com/guide/topics/manifest/manifest-intro.html
-
-`src/main/AndroidManifest.xml`
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.hello"
-    android:versionCode="1"
-    android:versionName="1.0.0" >
-
-    <application android:label="@string/app_name" >
-        <activity
-            android:name=".HelloActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-
-</manifest>
-```
+    <@snippet path="src/main/AndroidManifest.xml" prefix="complete"/>
 
 ### Create a string resource
 Add a text string. Text strings can be referenced from the application or from other resource files.
 
-`src/main/res/values/strings.xml`
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Android Gradle</string>
-</resources>
-```
+    <@snippet path="src/main/res/values/strings.xml" prefix="complete"/>
 
 ### Create a layout
 Here you define the visual structure for the user interface of your application.
 
-`src/main/res/layout/hello_layout.xml`
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<TextView  
-    android:id="@+id/text_view"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    />
-</LinearLayout>
-
-```
+    <@snippet path="src/main/res/layout/hello_layout.xml" prefix="complete"/>
 
 ### Create Java classes
 
@@ -154,6 +83,7 @@ Now that you have a project that you can build with Gradle, you can install Grad
 
 3. Configure the `GRADLE_HOME` environment variable based on the location where you installed Gradle.
 
+<#noparse>
     Mac/Linux:
 
     ```sh
@@ -167,6 +97,7 @@ Now that you have a project that you can build with Gradle, you can install Grad
     set GRADLE_HOME=C:\<installation location>\gradle-1.6
     set PATH=%PATH%;%GRADLE_HOME%\bin
     ```
+</#noparse>
 
 4. Test the Gradle installation with following command:
 
@@ -342,34 +273,7 @@ For example, suppose you want the application to print the current date and time
 
 To do this, modify `HelloActivity.java` to look like this:
 
-`src/main/java/org/hello/HelloActivity.java`
-```java
-package org.hello;
-
-import org.joda.time.LocalTime;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.TextView;
-
-public class HelloActivity extends Activity {
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.hello_layout);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        LocalTime currentTime = new LocalTime();
-        TextView textView = (TextView) findViewById(R.id.text_view);
-        textView.setText("The current local time is: " + currentTime);
-    }
-
-}
-```
+    <@snippet path="src/main/java/org/hello/HelloActivity.java" prefix="complete"/>
 
 In this example, we are using Joda Time's `LocalTime` class to retrieve and display the current time. 
 
@@ -390,33 +294,7 @@ Another thing to note about this dependency is that it is a `compile` dependency
 
 The completed build.gradle now looks like the following:
 
-`build.gradle`
-```gradle
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.4.2'
-    }
-}
-
-apply plugin: 'android'
-
-android {
-    buildToolsVersion "17.0"
-    compileSdkVersion 17
-}
-
-repositories { 
-    mavenCentral() 
-}
-
-dependencies {
-    compile("joda-time:joda-time:2.2")
-}
-```
+    <@snippet path="build.gradle" prefix="complete"/>
 
 
 Summary
