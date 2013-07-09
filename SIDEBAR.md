@@ -16,7 +16,7 @@ Building Android applications with Gradle is just one facet of the Android devel
 [gs-consuming-rest-xml-android]: /guides/gs/consuming-rest-xml-android/content
 [gs-device-detection]: /guides/gs/device-detection/content
 [gs-android]: /guides/gs/android/content
-[gs-maven]: /guides/gs/maven/content
+[gs-gradle]: /guides/gs/gradle/content
 
 ### Tutorials
 
