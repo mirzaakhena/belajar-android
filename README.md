@@ -6,6 +6,7 @@ What you'll build
 
 This guide walks you through using Gradle to build a simple Android project.
 
+
 What you'll need
 ----------------
 
@@ -32,6 +33,7 @@ To **skip the basics**, do the following:
 
 **When you're finished**, you can check your results against the code in `gs-gradle-android/complete`.
 [zip]: https://github.com/springframework-meta/gs-gradle-android/archive/master.zip
+
 
 <a name="scratch"></a>
 Set up the project
@@ -109,13 +111,13 @@ Here you define the visual structure for the user interface of your application.
     android:layout_height="wrap_content" 
     />
 </LinearLayout>
-
 ```
 
 ### Create Java classes
 
 Within the `src/main/java/org/hello` directory, you can create any Java classes you want. To maintain consistency with the rest of this guide, create the following class:
 
+`src/main/java/org/hello/HelloActivity.java`
 ```java
 package org.hello;
 
@@ -139,11 +141,13 @@ public class HelloActivity extends Activity {
     }
 
 }
-
 ```
+
+
 <a name="initial"></a>
 Install Gradle
-------------------
+--------------
+
 Now that you have a project that you can build with Gradle, you can install Gradle. 
 
 1. Download the latest version of Gradle (1.6 as of this writing) from the [Gradle Downloads] page. 
@@ -196,7 +200,8 @@ You now have Gradle installed.
 
 
 Find out what Gradle can do
-------------------------------
+---------------------------
+
 Before you even create a build.gradle file for the project, you can ask Gradle what tasks are available:
 
 ```sh
@@ -236,7 +241,8 @@ Build Android code
 
 The most simple Android project has the following `build.gradle` file:
 
-```groovy
+`build.gradle`
+```gradle
 buildscript {
     repositories {
         mavenCentral()

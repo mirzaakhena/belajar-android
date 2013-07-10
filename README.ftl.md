@@ -7,6 +7,7 @@ What you'll build
 
 This guide walks you through using Gradle to build a simple Android project.
 
+
 What you'll need
 ----------------
 
@@ -19,6 +20,7 @@ What you'll need
 
 ## <@how_to_complete_this_guide jump_ahead='Install Gradle'/>
 
+
 <a name="scratch"></a>
 Set up the project
 ------------------
@@ -29,50 +31,29 @@ First, you need to set up an Android project for Gradle to build. To keep the fo
 
 <@create_android_manifest/>
 
-    <@snippet path="src/main/AndroidManifest.xml" prefix="complete"/>
+    <@snippet path="src/main/AndroidManifest.xml" prefix="initial"/>
 
 ### Create a string resource
 Add a text string. Text strings can be referenced from the application or from other resource files.
 
-    <@snippet path="src/main/res/values/strings.xml" prefix="complete"/>
+    <@snippet path="src/main/res/values/strings.xml" prefix="initial"/>
 
 ### Create a layout
 Here you define the visual structure for the user interface of your application.
 
-    <@snippet path="src/main/res/layout/hello_layout.xml" prefix="complete"/>
+    <@snippet path="src/main/res/layout/hello_layout.xml" prefix="initial"/>
 
 ### Create Java classes
 
 Within the `src/main/java/org/hello` directory, you can create any Java classes you want. To maintain consistency with the rest of this guide, create the following class:
 
-```java
-package org.hello;
+    <@snippet path="src/main/java/org/hello/HelloActivity.java" prefix="initial"/>
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.TextView;
 
-public class HelloActivity extends Activity {
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.hello_layout);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        TextView textView = (TextView) findViewById(R.id.text_view);
-        textView.setText("Hello world!");
-    }
-
-}
-
-```
 <a name="initial"></a>
 Install Gradle
-------------------
+--------------
+
 Now that you have a project that you can build with Gradle, you can install Gradle. 
 
 1. Download the latest version of Gradle (1.6 as of this writing) from the [Gradle Downloads] page. 
@@ -83,21 +64,23 @@ Now that you have a project that you can build with Gradle, you can install Grad
 
 3. Configure the `GRADLE_HOME` environment variable based on the location where you installed Gradle.
 
-<#noparse>
     Mac/Linux:
 
+    <#noparse>
     ```sh
     $ export GRADLE_HOME=/<installation location>/gradle-1.6
     $ export PATH=${PATH}:$GRADLE_HOME/bin
     ```
+    </#noparse>
 
     Windows:
 
+    <#noparse>
     ```sh
     set GRADLE_HOME=C:\<installation location>\gradle-1.6
     set PATH=%PATH%;%GRADLE_HOME%\bin
     ```
-</#noparse>
+    </#noparse>
 
 4. Test the Gradle installation with following command:
 
@@ -127,7 +110,8 @@ You now have Gradle installed.
 
 
 Find out what Gradle can do
-------------------------------
+---------------------------
+
 Before you even create a build.gradle file for the project, you can ask Gradle what tasks are available:
 
 ```sh
@@ -167,24 +151,7 @@ Build Android code
 
 The most simple Android project has the following `build.gradle` file:
 
-```groovy
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.4.2'
-    }
-}
-
-apply plugin: 'android'
-
-android {
-    buildToolsVersion "17.0"
-    compileSdkVersion 17
-}
-```
+    <@snippet path="build.gradle" prefix="initial"/>
 
 This build configuration brings a significant amount of power. Run **gradle tasks** again, and you see new tasks for building the project, creating JavaDoc, and running tests.
 
