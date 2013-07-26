@@ -1,7 +1,5 @@
 <#assign project_id="gs-gradle-android"/>
 
-# Getting Started: Building Android Projects with Gradle
-
 What you'll build
 -----------------
 
