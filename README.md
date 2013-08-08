@@ -1,8 +1,9 @@
+This guide walks you through using Gradle to build a simple Android project.
 
 What you'll build
 -----------------
 
-This guide walks you through using Gradle to build a simple Android project.
+You'll build a simple Spring app for Android and then build it with Gradle.
 
 
 What you'll need
