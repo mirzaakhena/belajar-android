@@ -255,8 +255,8 @@ buildscript {
 apply plugin: 'android'
 
 android {
-    buildToolsVersion "17.0"
-    compileSdkVersion 17
+    buildToolsVersion "18.0.1"
+    compileSdkVersion 18
 }
 ```
 
@@ -403,15 +403,15 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.4.2'
+        classpath 'com.android.tools.build:gradle:0.5.6'
     }
 }
 
 apply plugin: 'android'
 
 android {
-    buildToolsVersion "17.0"
-    compileSdkVersion 17
+    buildToolsVersion "18.0.1"
+    compileSdkVersion 18
 }
 
 repositories { 
@@ -420,6 +420,10 @@ repositories {
 
 dependencies {
     compile("joda-time:joda-time:2.2")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.7'
 }
 ```
 
