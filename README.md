@@ -38,7 +38,7 @@ To **skip the basics**, do the following:
 Set up the project
 ------------------
 
-First, you need to set up an Android project for Gradle to build. To keep the focus on Gradle, make the project as simple as possible for now. If this is your first time working with Android projects, refer to [Getting Started with Android](../gs-android/README.md) to help configure your development environment.
+First, you need to set up an Android project for Gradle to build. To keep the focus on Gradle, make the project as simple as possible for now. If this is your first time working with Android projects, refer to [Getting Started with Android][gs-android] to help configure your development environment.
 
 ### Create the directory structure
 
@@ -438,3 +438,4 @@ Congratulations! You have created a simple yet effective Gradle build file for b
 [Gradle Downloads]:http://www.gradle.org/downloads
 [Installing Gradle]:http://www.gradle.org/docs/current/userguide/installation.html
 [Building Android Projects with Maven]:https://github.com/springframework-meta/gs-maven-android
+[gs-android]: /guides/gs/android
