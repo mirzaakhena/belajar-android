@@ -149,9 +149,9 @@ Install Gradle
 
 Now that you have a project that you can build with Gradle, you can install Gradle. 
 
-1. Download the latest version of Gradle (1.6 as of this writing) from the [Gradle Downloads] page. 
+1. Download the latest version of Gradle (1.7 as of this writing) from the [Gradle Downloads] page.
 
-    > **Note:** Only the binaries are required, so look for the link to `gradle-1.6-bin.zip`. Alternatively, you can choose `gradle-1.6-all.zip` to download the sources and documentation as well as the binaries.
+    > **Note:** Only the binaries are required, so look for the link to `gradle-1.7-bin.zip`. Alternatively, you can choose `gradle-1.7-all.zip` to download the sources and documentation as well as the binaries.
 
 2. Unzip the archive and place it in a location of your choosing. For example, on Linux or Mac, you may want to place it in the root of your user directory. See the [Installing Gradle] page for additional details.
 
@@ -160,14 +160,14 @@ Now that you have a project that you can build with Gradle, you can install Grad
     Mac/Linux:
 
     ```sh
-    $ export GRADLE_HOME=/<installation location>/gradle-1.6
+    $ export GRADLE_HOME=/<installation location>/gradle-1.7
     $ export PATH=${PATH}:$GRADLE_HOME/bin
     ```
 
     Windows:
 
     ```sh
-    set GRADLE_HOME=C:\<installation location>\gradle-1.6
+    set GRADLE_HOME=C:\<installation location>\gradle-1.7
     set PATH=%PATH%;%GRADLE_HOME%\bin
     ```
 
@@ -182,7 +182,7 @@ Now that you have a project that you can build with Gradle, you can install Grad
     ```sh
     :help
     
-    Welcome to Gradle 1.6.
+    Welcome to Gradle 1.7.
     
     To run a build, run gradle <task> ...
     
@@ -248,7 +248,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.4.2'
+        classpath 'com.android.tools.build:gradle:0.5.6'
     }
 }
 
@@ -260,15 +260,7 @@ android {
 }
 ```
 
-This build configuration brings a significant amount of power. Run **gradle tasks** again, and you see new tasks for building the project, creating JavaDoc, and running tests.
-
-The **gradle build** task is one of the most frequently used tasks. This task compiles, tests, and packages the code into an APK file. You can run it like this:
-
-```sh
-$ gradle build
-```
-
-After a few seconds, you see "BUILD SUCCESSFUL". The complete output can be seen below. 
+This build configuration brings a significant amount of power. Run **gradle tasks** again, and you see new tasks for building the project, creating JavaDoc, and running tests. The complete output can be seen below:
 
 ```sh
 :tasks
@@ -296,15 +288,16 @@ clean - Deletes the build directory.
 Build Setup tasks
 -----------------
 setupBuild - Initializes a new Gradle build. [incubating]
+wrapper - Generates Gradle wrapper files. [incubating]
 
 Help tasks
 ----------
-dependencies - Displays all dependencies declared in root project 'complete'.
-dependencyInsight - Displays the insight into a specific dependency in root project 'complete'.
+dependencies - Displays all dependencies declared in root project 'initial'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'initial'.
 help - Displays a help message
-projects - Displays the sub-projects of root project 'complete'.
-properties - Displays the properties of root project 'complete'.
-tasks - Displays the tasks runnable from root project 'complete' (some of the displayed tasks may belong to subprojects).
+projects - Displays the sub-projects of root project 'initial'.
+properties - Displays the properties of root project 'initial'.
+tasks - Displays the tasks runnable from root project 'initial'.
 
 Install tasks
 -------------
@@ -332,7 +325,52 @@ To see all tasks and more detail, run with --all.
 
 BUILD SUCCESSFUL
 
-Total time: 6.871 secs
+Total time: 7.007 secs
+```
+
+You'll use the **gradle build** task frequently. This task compiles, tests, and packages the code into an APK file. You can run it like this:
+
+```sh
+$ gradle build
+```
+
+After a few seconds, you see "BUILD SUCCESSFUL". The complete output can be seen below:
+
+```sh
+:prepareDebugDependencies
+:compileDebugAidl UP-TO-DATE
+:generateDebugBuildConfig UP-TO-DATE
+:mergeDebugAssets UP-TO-DATE
+:compileDebugRenderscript UP-TO-DATE
+:mergeDebugResources UP-TO-DATE
+:processDebugManifest UP-TO-DATE
+:processDebugResources UP-TO-DATE
+:compileDebug UP-TO-DATE
+:dexDebug UP-TO-DATE
+:processDebugJavaRes UP-TO-DATE
+:validateDebugSigning
+:packageDebug UP-TO-DATE
+:assembleDebug UP-TO-DATE
+:prepareReleaseDependencies
+:compileReleaseAidl UP-TO-DATE
+:generateReleaseBuildConfig UP-TO-DATE
+:mergeReleaseAssets UP-TO-DATE
+:compileReleaseRenderscript UP-TO-DATE
+:mergeReleaseResources UP-TO-DATE
+:processReleaseManifest UP-TO-DATE
+:processReleaseResources UP-TO-DATE
+:compileRelease UP-TO-DATE
+:dexRelease UP-TO-DATE
+:processReleaseJavaRes UP-TO-DATE
+:packageRelease UP-TO-DATE
+:assembleRelease UP-TO-DATE
+:assemble UP-TO-DATE
+:check UP-TO-DATE
+:build UP-TO-DATE
+
+BUILD SUCCESSFUL
+
+Total time: 6.944 secs
 ```
 
 You can see results of the build process in the `build` folder. Here you see several folders related to various parts of the build or application. The assembled Android package resides in the `apk` folder. The APK file here is ready to be deployed to a device or emulator.
@@ -393,7 +431,43 @@ Within the `dependencies` block, you declare a single dependency for Joda Time. 
 
 Another thing to note about this dependency is that it is a `compile` dependency, indicating that it should be available during compile-time. Now if you run `gradle build`, Gradle should resolve the Joda Time dependency from the Maven Central repository and the build will be successful.
 
-The completed build.gradle now looks like the following:
+
+Gradle Wrapper
+--------------
+
+The Gradle Wrapper is the preferred way of starting a Gradle build. It consists of a batch script for Windows support and a shell script for support on OS X and Linux. These scripts allow you to run a Gradle build without requiring that Gradle be installed on your system. You can install the wrapper into your project by adding the following lines to the build.gradle:
+
+```groovy
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.7'
+}
+```
+
+Run the following command to download and initialize the wrapper scripts:
+
+```sh
+$ gradle wrapper
+```
+
+After this task completes, you will notice a few new files. The two scripts are in the root of the folder, while the wrapper jar and properties files have been added to a new `gradle/wrapper` folder.
+
+    └── initial
+        └── gradlew
+        └── gradlew.bat
+        └── gradle
+            └── wrapper
+                └── gradle-wrapper.jar
+                └── gradle-wrapper.properties
+
+The Gradle Wrapper is now available for building your project. It can be used in the exact same way as an installed version of Gradle. Run the wrapper script to perform the build task, just like you did previously:
+
+```sh
+$ ./gradlew build
+```
+
+The first time you run the wrapper for a specified version of Gradle, it downloads and caches the Gradle binaries for that version. The Gradle Wrapper files are designed to be committed to source control so that anyone can build the project without having to first install and configure a specific version of Gradle.
+
+Here is the completed `build.gradle` file:
 
 `build.gradle`
 ```gradle
@@ -426,6 +500,7 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.7'
 }
 ```
+
 
 
 Summary
