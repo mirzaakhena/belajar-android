@@ -2,7 +2,7 @@
 
 Building Android applications with Gradle is just one facet of the Android development story. You may want to continue your exploration of Android application development and mobile application development with the following
 
-### Getting Started Guides
+### Getting Started guides
 
 * [Building Android Applications with Maven][gs-maven-android]
 * [Consuming RESTful Web Services on Android][gs-consuming-rest-android]
@@ -24,7 +24,7 @@ Building Android applications with Gradle is just one facet of the Android devel
 
 [tut-rest]: /guides/tutorials/rest
 
-### Understanding
+### Concepts and technologies
 
 * [REST][u-rest]
 * [JSON][u-json]
