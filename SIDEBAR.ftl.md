@@ -1,13 +1,13 @@
-### Related Resources
+## Related resources
 
-Building Android applications with Gradle is just one facet of the Android development story. You may want to continue your exploration of Android application development and mobile application development with the following
+Building Android applications with Gradle is just one facet of the Android development story. You can continue to explore Android application development and mobile application development with the following resources.
 
 ### Getting Started guides
 
-* [Building Android Applications with Maven][gs-maven-android]
-* [Consuming RESTful Web Services on Android][gs-consuming-rest-android]
-* [Consuming XML From a RESTful Web Service on Android][gs-consuming-rest-xml-android]
-* [Device Detection][gs-device-detection]
+* [Building Android Projects with Maven][gs-maven-android]
+* [Consuming RESTful Web Services with Spring for Android][gs-consuming-rest-android]
+* [Consuming XML from a RESTful Web Service with Spring for Android][gs-consuming-rest-xml-android]
+* [Detecting a Device][gs-device-detection]
 * [Installing the Android Development Environment][gs-android]
 * [Building Java Projects with Gradle][gs-gradle]
 
