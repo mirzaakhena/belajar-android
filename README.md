@@ -1,9 +1,9 @@
-This guide walks you through using Gradle to build a simple Android project.
+This guide walks you through the process of using Gradle to build a simple Android project.
 
 What you'll build
 -----------------
 
-You'll build a simple Spring app for Android and then build it with Gradle.
+You'll create a simple Spring app for Android and then build it with Gradle.
 
 
 What you'll need
@@ -433,8 +433,8 @@ Within the `dependencies` block, you declare a single dependency for Joda Time. 
 Another thing to note about this dependency is that it is a `compile` dependency, indicating that it should be available during compile-time. Now if you run `gradle build`, Gradle should resolve the Joda Time dependency from the Maven Central repository and the build will be successful.
 
 
-Gradle Wrapper
---------------
+Build your project with Gradle Wrapper
+--------------------------------------
 
 The Gradle Wrapper is the preferred way of starting a Gradle build. It consists of a batch script for Windows support and a shell script for support on OS X and Linux. These scripts allow you to run a Gradle build without requiring that Gradle be installed on your system. You can install the wrapper into your project by adding the following lines to the build.gradle:
 
