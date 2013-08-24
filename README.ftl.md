@@ -347,5 +347,5 @@ Congratulations! You have created a simple yet effective Gradle build file for b
 [Gradle]:http://www.gradle.org
 [Gradle Downloads]:http://www.gradle.org/downloads
 [Installing Gradle]:http://www.gradle.org/docs/current/userguide/installation.html
-[Building Android Projects with Maven]:https://github.com/springframework-meta/gs-maven-android
+[Building Android Projects with Maven]:https://github.com/spring-guides/gs-maven-android
 [gs-android]: /guides/gs/android

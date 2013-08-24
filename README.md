@@ -26,12 +26,12 @@ To **start from scratch**, move on to [Set up the project](#scratch).
 To **skip the basics**, do the following:
 
  - [Download][zip] and unzip the source repository for this guide, or clone it using [Git][u-git]:
-`git clone https://github.com/springframework-meta/gs-gradle-android.git`
+`git clone https://github.com/spring-guides/gs-gradle-android.git`
  - cd into `gs-gradle-android/initial`.
  - Jump ahead to [Install Gradle](#initial).
 
 **When you're finished**, you can check your results against the code in `gs-gradle-android/complete`.
-[zip]: https://github.com/springframework-meta/gs-gradle-android/archive/master.zip
+[zip]: https://github.com/spring-guides/gs-gradle-android/archive/master.zip
 [u-git]: /understanding/Git
 
 
@@ -513,5 +513,5 @@ Congratulations! You have created a simple yet effective Gradle build file for b
 [Gradle]:http://www.gradle.org
 [Gradle Downloads]:http://www.gradle.org/downloads
 [Installing Gradle]:http://www.gradle.org/docs/current/userguide/installation.html
-[Building Android Projects with Maven]:https://github.com/springframework-meta/gs-maven-android
+[Building Android Projects with Maven]:https://github.com/spring-guides/gs-maven-android
 [gs-android]: /guides/gs/android
