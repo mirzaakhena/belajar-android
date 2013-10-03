@@ -55,9 +55,9 @@ Install Gradle
 
 Now that you have a project that you can build with Gradle, you can install Gradle. 
 
-1. Download the latest version of Gradle (1.7 as of this writing) from the [Gradle Downloads] page.
+1. Download the latest version of Gradle (1.8 as of this writing) from the [Gradle Downloads] page.
 
-    > **Note:** Only the binaries are required, so look for the link to `gradle-1.7-bin.zip`. Alternatively, you can choose `gradle-1.7-all.zip` to download the sources and documentation as well as the binaries.
+    > **Note:** Only the binaries are required, so look for the link to `gradle-1.8-bin.zip`. Alternatively, you can choose `gradle-1.8-all.zip` to download the sources and documentation as well as the binaries.
 
 2. Unzip the archive and place it in a location of your choosing. For example, on Linux or Mac, you may want to place it in the root of your user directory. See the [Installing Gradle] page for additional details.
 
@@ -67,7 +67,7 @@ Now that you have a project that you can build with Gradle, you can install Grad
 
     <#noparse>
     ```sh
-    $ export GRADLE_HOME=/<installation location>/gradle-1.7
+    $ export GRADLE_HOME=/<installation location>/gradle-1.8
     $ export PATH=${PATH}:$GRADLE_HOME/bin
     ```
     </#noparse>
@@ -76,7 +76,7 @@ Now that you have a project that you can build with Gradle, you can install Grad
 
     <#noparse>
     ```sh
-    set GRADLE_HOME=C:\<installation location>\gradle-1.7
+    set GRADLE_HOME=C:\<installation location>\gradle-1.8
     set PATH=%PATH%;%GRADLE_HOME%\bin
     ```
     </#noparse>
@@ -92,7 +92,7 @@ Now that you have a project that you can build with Gradle, you can install Grad
     ```sh
     :help
     
-    Welcome to Gradle 1.7.
+    Welcome to Gradle 1.8.
     
     To run a build, run gradle <task> ...
     
@@ -304,7 +304,7 @@ The Gradle Wrapper is the preferred way of starting a Gradle build. It consists 
 
 ```groovy
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.7'
+    gradleVersion = '1.8'
 }
 ```
 
