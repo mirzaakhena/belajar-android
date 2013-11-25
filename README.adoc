@@ -29,7 +29,6 @@ You'll create a simple Spring app for Android and then build it with Gradle.
  - An Android device or Emulator
 
 
-:jump_ahead: Install Gradle
 include::https://raw.github.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
 
