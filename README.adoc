@@ -1,3 +1,7 @@
+---
+tags: [android, gradle]
+projects: [spring-android]
+---
 :spring_boot_version: 0.5.0.M6
 :Installing_Gradle: http://www.gradle.org/docs/current/userguide/installation.html
 :Gradle: http://www.gradle.org
