@@ -2,18 +2,10 @@
 tags: [android, gradle]
 projects: [spring-android]
 ---
-:spring_boot_version: 0.5.0.M6
 :Installing_Gradle: http://www.gradle.org/docs/current/userguide/installation.html
-:Gradle: http://www.gradle.org
-:New_Build_System: http://tools.android.com/tech-docs/new-build-system
 :Gradle_Downloads: http://www.gradle.org/downloads
 :sdk: http://developer.android.com/sdk/index.html
 :jdk: http://www.oracle.com/technetwork/java/javase/downloads/index.html
-:New Build System: http://tools.android.com/tech-docs/new-build-system
-:Gradle: http://www.gradle.org
-:Gradle Downloads: http://www.gradle.org/downloads
-:Installing_Gradle: http://www.gradle.org/docs/current/userguide/installation.html
-:Building_Android_Projects_with_Maven: https://github.com/spring-guides/gs-maven-android
 :gs-android: link:/guides/gs/android
 :toc:
 :icons: font
@@ -84,7 +76,7 @@ include::initial/src/main/java/org/hello/HelloActivity.java[]
 
 Now that you have a project that you can build with Gradle, you can install Gradle. 
 
-**1.** Download Gradle 1.11 from the {Gradle Downloads} page.
+**1.** Download Gradle 1.11 from the {Gradle_Downloads} page.
 
 NOTE: Only the binaries are required, so look for the link to `gradle-1.11-bin.zip`. Alternatively, you can choose `gradle-1.11-all.zip` to download the sources and documentation as well as the binaries.
 
