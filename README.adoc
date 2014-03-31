@@ -82,9 +82,9 @@ include::initial/src/main/java/org/hello/HelloActivity.java[]
 
 Now that you have a project that you can build with Gradle, you can install Gradle. 
 
-**1.** Download the latest version of Gradle (1.8 as of this writing) from the {Gradle Downloads} page.
+**1.** Download Gradle 1.11 from the {Gradle Downloads} page.
 
-NOTE: Only the binaries are required, so look for the link to `gradle-1.8-bin.zip`. Alternatively, you can choose `gradle-1.8-all.zip` to download the sources and documentation as well as the binaries.
+NOTE: Only the binaries are required, so look for the link to `gradle-1.11-bin.zip`. Alternatively, you can choose `gradle-1.11-all.zip` to download the sources and documentation as well as the binaries.
 
 **2.** Unzip the archive and place it in a location of your choosing. For example, on Linux or Mac, you may want to place it in the root of your user directory. See the {Installing_Gradle}[Installing Gradle] page for additional details.
 
@@ -92,13 +92,13 @@ NOTE: Only the binaries are required, so look for the link to `gradle-1.8-bin.zi
 
 Mac/Linux::
 ----
-export GRADLE_HOME=/<installation location>/gradle-1.8
+export GRADLE_HOME=/<installation location>/gradle-1.11
 export PATH=${PATH}:$GRADLE_HOME/bin
 ----
 
 Windows::
 ----
-set GRADLE_HOME=C:\<installation location>\gradle-1.8
+set GRADLE_HOME=C:\<installation location>\gradle-1.11
 set PATH=%PATH%;%GRADLE_HOME%\bin
 ----
 
@@ -302,13 +302,13 @@ If you ran `gradle build` to build the project now, the build would fail because
 ----
 repositories { mavenCentral() }
 dependencies {
-    compile "joda-time:joda-time:2.2"
+    compile "joda-time:joda-time:2.3"
 }
 ----
 
 The first line here indicates that the build should resolve its dependencies from the Maven Central repository. Gradle leans heavily on many conventions and facilities established by the Maven build tool, including the option of using Maven Central as a source of library dependencies.
 
-Within the `dependencies` block, you declare a single dependency for Joda Time. Specifically, you are asking for (reading right to left) version 2.2 of the joda-time library, in the joda-time group. 
+Within the `dependencies` block, you declare a single dependency for Joda Time. Specifically, you are asking for (reading right to left) version 2.3 of the joda-time library, in the joda-time group.
 
 Another thing to note about this dependency is that it is a `compile` dependency, indicating that it should be available during compile-time. Now if you run `gradle build`, Gradle should resolve the Joda Time dependency from the Maven Central repository and the build will be successful.
 
@@ -320,7 +320,7 @@ The Gradle Wrapper is the preferred way of starting a Gradle build. It consists 
 [source,groovy]
 ----
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.8'
+    gradleVersion = '1.11'
 }
 ----
 
