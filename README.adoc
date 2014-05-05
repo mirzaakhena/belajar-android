@@ -27,7 +27,7 @@ You'll create a simple Spring app for Android and then build it with Gradle.
  - An Android device or Emulator
 
 
-include::https://raw.github.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
 
 [[scratch]]
@@ -35,9 +35,9 @@ include::https://raw.github.com/spring-guides/getting-started-macros/master/how_
 
 First, you need to set up an Android project for Gradle to build. To keep the focus on Gradle, make the project as simple as possible for now. If this is your first time working with Android projects, refer to {gs-android}[Getting Started with Android] to help configure your development environment.
 
-include::https://raw.github.com/spring-guides/getting-started-macros/master/create_directory_structure_org_hello.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_org_hello.adoc[]
 
-include::https://raw.github.com/spring-guides/getting-started-macros/master/create_android_manifest.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_android_manifest.adoc[]
 
 `src/main/AndroidManifest.xml`
 [source,xml]
