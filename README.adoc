@@ -4,7 +4,7 @@ projects: [spring-android]
 ---
 :Installing_Gradle: http://www.gradle.org/docs/current/userguide/installation.html
 :Gradle_Downloads: http://www.gradle.org/downloads
-:sdk: http://developer.android.com/sdk/index.html
+:sdk: http://developer.android.com/sdk/index.html#Other
 :jdk: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 :gs-android: link:/guides/gs/android
 :toc:
@@ -22,7 +22,7 @@ You'll create a simple Spring app for Android and then build it with Gradle.
 
  - About 15 minutes
  - A favorite text editor or IDE
- - {jdk}[JDK 6] or later
+ - {jdk}[JDK 7] or later
  - {sdk}[Android SDK]
  - An Android device or Emulator
 
@@ -76,9 +76,9 @@ include::initial/src/main/java/org/hello/HelloActivity.java[]
 
 Now that you have a project that you can build with Gradle, you can install Gradle. 
 
-**1.** Download Gradle 1.11 from the {Gradle_Downloads}[Gradle Downloads] page.
+**1.** Download Gradle 2.3 from the {Gradle_Downloads}[Gradle Downloads] page.
 
-NOTE: Only the binaries are required, so look for the link to `gradle-1.11-bin.zip`. Alternatively, you can choose `gradle-1.11-all.zip` to download the sources and documentation as well as the binaries.
+NOTE: Only the binaries are required, so look for the link to `gradle-2.3-bin.zip`. Alternatively, you can choose `gradle-2.3-all.zip` to download the sources and documentation as well as the binaries.
 
 **2.** Unzip the archive and place it in a location of your choosing. For example, on Linux or Mac, you may want to place it in the root of your user directory. See the {Installing_Gradle}[Installing Gradle] page for additional details.
 
@@ -86,13 +86,13 @@ NOTE: Only the binaries are required, so look for the link to `gradle-1.11-bin.z
 
 Mac/Linux::
 ----
-export GRADLE_HOME=/<installation location>/gradle-1.11
+export GRADLE_HOME=/<installation location>/gradle-2.3
 export PATH=${PATH}:$GRADLE_HOME/bin
 ----
 
 Windows::
 ----
-set GRADLE_HOME=C:\<installation location>\gradle-1.11
+set GRADLE_HOME=C:\<installation location>\gradle-2.3
 set PATH=%PATH%;%GRADLE_HOME%\bin
 ----
 
@@ -107,7 +107,7 @@ If the installation is correct, you see a welcome message:
 ----
 :help
 
-Welcome to Gradle 1.11.
+Welcome to Gradle 2.3.
 
 To run a build, run gradle <task> ...
 
@@ -115,9 +115,11 @@ To see a list of available tasks, run gradle tasks
 
 To see a list of command-line options, run gradle --help
 
+To see more detail about a task, run gradle help --task <task>
+
 BUILD SUCCESSFUL
 
-Total time: 3.618 secs 
+Total time: 1.435 secs
 ----
 
 You now have Gradle installed.
@@ -147,18 +149,21 @@ wrapper - Generates Gradle wrapper files. [incubating]
 
 Help tasks
 ----------
+components - Displays the components produced by root project 'temp'. [incubating]
 dependencies - Displays all dependencies declared in root project 'temp'.
 dependencyInsight - Displays the insight into a specific dependency in root project 'temp'.
-help - Displays a help message
+help - Displays a help message.
 projects - Displays the sub-projects of root project 'temp'.
 properties - Displays the properties of root project 'temp'.
 tasks - Displays the tasks runnable from root project 'temp'.
 
-To see all tasks and more detail, run with --all.
+To see all tasks and more detail, run gradle tasks --all
+
+To see more detail about a task, run gradle help --task <task>
 
 BUILD SUCCESSFUL
 
-Total time: 1.537 secs
+Total time: 1.589 secs
 ....
 
 Even though these tasks are available, they do not offer much value without a project build configuration. As you flesh out the `build.gradle` file, some of these tasks become more useful. The list of tasks will grow as you add plugins to the `build.gradle` file. You can run **gradle tasks** again to see what new tasks are available.
@@ -185,19 +190,26 @@ All tasks runnable from root project
 
 Android tasks
 -------------
-androidDependencies - Displays the Android dependencies of the project
-signingReport - Displays the signing info for each variant
+androidDependencies - Displays the Android dependencies of the project.
+signingReport - Displays the signing info for each variant.
 
 Build tasks
 -----------
 assemble - Assembles all variants of all applications and secondary packages.
-assembleDebug - Assembles all Debug builds
-assembleDebugTest - Assembles the Test build for the Debug build
-assembleRelease - Assembles all Release builds
+assembleAndroidTest - Assembles all the Test applications.
+assembleDebug - Assembles all Debug builds.
+assembleDebugAndroidTest - Assembles the android (on device) tests for the Debug build.
+assembleRelease - Assembles all Release builds.
 build - Assembles and tests this project.
 buildDependents - Assembles and tests this project and all projects that depend on it.
 buildNeeded - Assembles and tests this project and all projects it depends on.
 clean - Deletes the build directory.
+compileDebugAndroidTestSources
+compileDebugSources
+compileDebugUnitTestSources
+compileReleaseSources
+compileReleaseUnitTestSources
+mockableAndroidJar - Creates a version of android.jar that's suitable for unit tests.
 
 Build Setup tasks
 -----------------
@@ -205,31 +217,35 @@ init - Initializes a new Gradle build. [incubating]
 
 Help tasks
 ----------
+components - Displays the components produced by root project 'complete'. [incubating]
 dependencies - Displays all dependencies declared in root project 'complete'.
 dependencyInsight - Displays the insight into a specific dependency in root project 'complete'.
-help - Displays a help message
+help - Displays a help message.
 projects - Displays the sub-projects of root project 'complete'.
 properties - Displays the properties of root project 'complete'.
 tasks - Displays the tasks runnable from root project 'complete'.
 
 Install tasks
 -------------
-installDebug - Installs the Debug build
-installDebugTest - Installs the Test build for the Debug build
+installDebug - Installs the Debug build.
+installDebugAndroidTest - Installs the android (on device) tests for the Debug build.
 uninstallAll - Uninstall all applications.
-uninstallDebug - Uninstalls the Debug build
-uninstallDebugTest - Uninstalls the Test build for the Debug build
-uninstallRelease - Uninstalls the Release build
+uninstallDebug - Uninstalls the Debug build.
+uninstallDebugAndroidTest - Uninstalls the android (on device) tests for the Debug build.
+uninstallRelease - Uninstalls the Release build.
 
 Verification tasks
 ------------------
 check - Runs all checks.
-connectedAndroidTest - Installs and runs the tests for Build 'debug' on connected devices.
+connectedAndroidTest - Installs and runs the tests for Debug build on connected devices.
 connectedCheck - Runs all device checks on currently connected devices.
 deviceCheck - Runs all device checks using Device Providers and Test Servers.
 lint - Runs lint on all variants.
-lintDebug - Runs lint on the Debug build
-lintRelease - Runs lint on the Release build
+lintDebug - Runs lint on the Debug build.
+lintRelease - Runs lint on the Release build.
+test - Run all unit tests.
+testDebug - Run unit tests for the Debug build.
+testRelease - Run unit tests for the Release build.
 
 Other tasks
 -----------
@@ -237,15 +253,17 @@ wrapper
 
 Rules
 -----
+Pattern: clean<TaskName>: Cleans the output files of a task.
 Pattern: build<ConfigurationName>: Assembles the artifacts of a configuration.
 Pattern: upload<ConfigurationName>: Assembles and uploads the artifacts belonging to a configuration.
-Pattern: clean<TaskName>: Cleans the output files of a task.
 
-To see all tasks and more detail, run with --all.
+To see all tasks and more detail, run gradle tasks --all
+
+To see more detail about a task, run gradle help --task <task>
 
 BUILD SUCCESSFUL
 
-Total time: 4.11 secs
+Total time: 3.206 secs
 ....
 
 You will use the **gradle build** task frequently. This task compiles, tests, and packages the code into an APK file. You can run it like this:
@@ -257,58 +275,73 @@ gradle build
 After a few seconds, you see "BUILD SUCCESSFUL". The complete output can be seen below:
 
 ....
-:compileDebugNdk
-:preBuild
-:preDebugBuild
+:preBuild UP-TO-DATE
+:preDebugBuild UP-TO-DATE
+:compileDebugNdk UP-TO-DATE
 :checkDebugManifest
 :prepareDebugDependencies
-:compileDebugAidl
-:compileDebugRenderscript
-:generateDebugBuildConfig
-:mergeDebugAssets
+:compileDebugAidl UP-TO-DATE
+:compileDebugRenderscript UP-TO-DATE
+:generateDebugBuildConfig UP-TO-DATE
+:generateDebugAssets UP-TO-DATE
+:mergeDebugAssets UP-TO-DATE
 :generateDebugResValues UP-TO-DATE
-:generateDebugResources
-:mergeDebugResources
-:processDebugManifest
-:processDebugResources
-:generateDebugSources
-:compileDebugJava
-:preDexDebug
-:dexDebug
+:generateDebugResources UP-TO-DATE
+:mergeDebugResources UP-TO-DATE
+:processDebugManifest UP-TO-DATE
+:processDebugResources UP-TO-DATE
+:generateDebugSources UP-TO-DATE
+:compileDebugJava UP-TO-DATE
+:preDexDebug UP-TO-DATE
+:dexDebug UP-TO-DATE
 :processDebugJavaRes UP-TO-DATE
 :validateDebugSigning
-:packageDebug
-:assembleDebug
-:preReleaseBuild
+:packageDebug UP-TO-DATE
+:zipalignDebug UP-TO-DATE
+:assembleDebug UP-TO-DATE
+:preReleaseBuild UP-TO-DATE
 :checkReleaseManifest
 :prepareReleaseDependencies
-:compileReleaseAidl
-:compileReleaseRenderscript
-:generateReleaseBuildConfig
-:mergeReleaseAssets
+:compileReleaseAidl UP-TO-DATE
+:compileReleaseRenderscript UP-TO-DATE
+:generateReleaseBuildConfig UP-TO-DATE
+:generateReleaseAssets UP-TO-DATE
+:mergeReleaseAssets UP-TO-DATE
 :generateReleaseResValues UP-TO-DATE
-:generateReleaseResources
-:mergeReleaseResources
-:processReleaseManifest
-:processReleaseResources
-:generateReleaseSources
-:compileReleaseJava
+:generateReleaseResources UP-TO-DATE
+:mergeReleaseResources UP-TO-DATE
+:processReleaseManifest UP-TO-DATE
+:processReleaseResources UP-TO-DATE
+:generateReleaseSources UP-TO-DATE
+:compileReleaseJava UP-TO-DATE
 :lintVitalRelease SKIPPED
-:compileReleaseNdk
-:preDexRelease
-:dexRelease
+:compileReleaseNdk UP-TO-DATE
+:preDexRelease UP-TO-DATE
+:dexRelease UP-TO-DATE
 :processReleaseJavaRes UP-TO-DATE
-:packageRelease
-:assembleRelease
-:assemble
+:packageRelease UP-TO-DATE
+:assembleRelease UP-TO-DATE
+:assemble UP-TO-DATE
 :compileLint
 :lint
+:preCompileDebugUnitTestJava
+:compileDebugUnitTestJava UP-TO-DATE
+:compileDebugUnitTestSources UP-TO-DATE
+:mockableAndroidJar UP-TO-DATE
+:assembleDebugUnitTest UP-TO-DATE
+:testDebug UP-TO-DATE
+:preCompileReleaseUnitTestJava
+:compileReleaseUnitTestJava UP-TO-DATE
+:compileReleaseUnitTestSources UP-TO-DATE
+:assembleReleaseUnitTest UP-TO-DATE
+:testRelease UP-TO-DATE
+:test UP-TO-DATE
 :check
 :build
 
 BUILD SUCCESSFUL
 
-Total time: 22.78 secs
+Total time: 4.562 secs
 ....
 
 You can see results of the build process in the `build` folder. Here you see several folders related to various parts of the build or application. The assembled Android package resides in the `apk` folder. The APK file here is ready to be deployed to a device or emulator.
@@ -334,15 +367,18 @@ If you ran `gradle build` to build the project now, the build would fail because
 
 [source,groovy]
 ----
-repositories { mavenCentral() }
+repositories { 
+    jcenter()
+}
+
 dependencies {
-    compile "joda-time:joda-time:2.3"
+    compile 'joda-time:joda-time:2.7'
 }
 ----
 
 The first line here indicates that the build should resolve its dependencies from the Maven Central repository. Gradle leans heavily on many conventions and facilities established by the Maven build tool, including the option of using Maven Central as a source of library dependencies.
 
-Within the `dependencies` block, you declare a single dependency for Joda Time. Specifically, you are asking for (reading right to left) version 2.3 of the joda-time library, in the joda-time group. 
+Within the `dependencies` block, you declare a single dependency for Joda Time. Specifically, you are asking for (reading right to left) version 2.7 of the joda-time library, in the joda-time group. 
 
 Another thing to note about this dependency is that it is a `compile` dependency, indicating that it should be available during compile-time. Now if you run `gradle build`, Gradle should resolve the Joda Time dependency from the Maven Central repository and the build will be successful.
 
@@ -354,7 +390,7 @@ The Gradle Wrapper is the preferred way of starting a Gradle build. It consists 
 [source,groovy]
 ----
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+    gradleVersion = '2.3'
 }
 ----
 
